@@ -1,9 +1,9 @@
 mib: FS-SYSTEM-MIB:FS-PROCESS-MIB:FS-MEMORY-MIB:FS-POE-MIB:FS-FIBER-MIB
 modules:
     os:
-        hardware: FS-SYSTEM-MIB::sysModel.0
-        version: FS-SYSTEM-MIB::sysSoftwareVersion.0
-        serial: FS-SYSTEM-MIB::sysSerialNumber.0
+        hardware: .1.3.6.1.4.1.52642.1.1.10.2.1.26.0
+        version: .1.3.6.1.4.1.52642.1.1.10.2.1.2.0
+        serial: .1.3.6.1.4.1.52642.1.1.10.2.1.24.0
     processors:
         data:
             -
