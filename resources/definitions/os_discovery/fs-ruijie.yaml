@@ -13,9 +13,9 @@ modules:
     mempools:
         data:
             -
-                oid: fsMemoryPoolUtilizationTable
-                total: fsMemoryPoolSize
-                used: fsMemoryPoolUsed
+                oid: FS-MEMORY-MIB::fsMemoryPoolUtilizationTable
+                total: FS-MEMORY-MIB::fsMemoryPoolSize
+                used: FS-MEMORY-MIB::fsMemoryPoolUsed
                 precision: 1024
                 descr: 'Memory Pool {{ $index }}'
     sensors:
