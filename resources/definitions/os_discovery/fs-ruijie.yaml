@@ -13,129 +13,129 @@ modules:
     mempools:
         data:
             -
-                oid: fsMemTable
-                total: fsMemTotal
-                used: fsMemUsed
+                oid: fsMemoryPoolUtilizationTable
+                total: fsMemoryPoolSize
+                used: fsMemoryPoolUsed
                 precision: 1024
                 descr: 'Memory Pool {{ $index }}'
     sensors:
         temperature:
             data:
-                # System temperature from sysTemperatureInfo table
+                # System temperature
                 -
-                    oid: sysTemperatureInfoTable
-                    value: sysTemperatureCurrent
+                    oid: fsSystemMultipleTemperatureTable
+                    value: fsSystemMultipleTemperatureCurrent
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.1.44.1.5.{{ $index }}'
                     descr: 'Temperature Slot {{ $subindex0 }} Sensor {{ $subindex1 }}'
-                    high_limit: sysTemperatureFatal
-                    warn_limit: sysTemperatureWarning
+                    high_limit: fsSystemMultipleTemperatureCritical
+                    warn_limit: fsSystemMultipleTemperatureWarning
                 # SFP/Transceiver temperature
                 -
-                    oid: ifFiberStatusTable
-                    value: ifFiberTemperature
+                    oid: fsFiberTable
+                    value: fsFiberTemp
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.17.{{ $index }}'
-                    descr: '{{ $ifFiberPortName }} Temperature'
+                    descr: '{{ $fsFiberPortDescr }} Temperature'
                     skip_values:
                         -
-                            oid: ifFiberStatus
+                            oid: fsFiberDDMSupportStatus
                             op: '!='
                             value: 1
                         -
-                            oid: ifFiberTemperature
+                            oid: fsFiberTemp
                             op: '='
                             value: 0
         dbm:
             data:
                 # SFP RX Power
                 -
-                    oid: ifFiberStatusTable
-                    value: ifFiberRxPower
+                    oid: fsFiberTable
+                    value: fsFiberRXpower
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.51.{{ $index }}'
-                    descr: '{{ $ifFiberPortName }} RX Power'
+                    descr: '{{ $fsFiberPortDescr }} RX Power'
                     divisor: 10
                     skip_values:
                         -
-                            oid: ifFiberStatus
+                            oid: fsFiberDDMSupportStatus
                             op: '!='
                             value: 1
                         -
-                            oid: ifFiberRxPower
+                            oid: fsFiberRXpower
                             op: '='
                             value: -100
                 # SFP TX Power
                 -
-                    oid: ifFiberStatusTable
-                    value: ifFiberTxPower
+                    oid: fsFiberTable
+                    value: fsFiberTXpower
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.31.{{ $index }}'
-                    descr: '{{ $ifFiberPortName }} TX Power'
+                    descr: '{{ $fsFiberPortDescr }} TX Power'
                     divisor: 10
                     skip_values:
                         -
-                            oid: ifFiberStatus
+                            oid: fsFiberDDMSupportStatus
                             op: '!='
                             value: 1
                         -
-                            oid: ifFiberTxPower
+                            oid: fsFiberTXpower
                             op: '='
                             value: -100
         voltage:
             data:
                 # SFP Voltage
                 -
-                    oid: ifFiberStatusTable
-                    value: ifFiberVoltage
+                    oid: fsFiberTable
+                    value: fsFiberVoltage
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.19.{{ $index }}'
-                    descr: '{{ $ifFiberPortName }} Voltage'
+                    descr: '{{ $fsFiberPortDescr }} Voltage'
                     divisor: 1000
                     skip_values:
                         -
-                            oid: ifFiberStatus
+                            oid: fsFiberDDMSupportStatus
                             op: '!='
                             value: 1
                         -
-                            oid: ifFiberVoltage
+                            oid: fsFiberVoltage
                             op: '='
                             value: 0
         current:
             data:
                 # SFP Bias Current
                 -
-                    oid: ifFiberStatusTable
-                    value: ifFiberBiasCurrent
+                    oid: fsFiberTable
+                    value: fsFiberBias
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.21.{{ $index }}'
-                    descr: '{{ $ifFiberPortName }} Bias Current'
+                    descr: '{{ $fsFiberPortDescr }} Bias Current'
                     divisor: 1000
                     skip_values:
                         -
-                            oid: ifFiberStatus
+                            oid: fsFiberDDMSupportStatus
                             op: '!='
                             value: 1
                         -
-                            oid: ifFiberBiasCurrent
+                            oid: fsFiberBias
                             op: '='
                             value: 0
         power:
             data:
                 # PoE consuming power per port (milliwatts to watts)
                 -
-                    oid: ifPoeStatusTable
+                    oid: fsIfPoeTable
                     value: ifPoeConsumingPwr
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.110.1.1.1.7.{{ $index }}'
                     descr: 'PoE Port {{ $index }}'
                     divisor: 1000
                     skip_values:
                         -
-                            oid: ifPoeCapable
+                            oid: ifIsPoe
                             op: '!='
                             value: 1
         state:
             data:
                 # PSU Status
                 -
-                    oid: sysPSInfoTable
-                    value: sysPSState
+                    oid: fsSystemElectricalSourceIsNormalTable
+                    value: fsSystemElectricalSourceIsNormal
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.1.18.1.2.{{ $index }}'
-                    descr: '{{ $sysPSName }}'
+                    descr: '{{ $fsSystemElectricalSourceName }}'
                     states:
                         - { value: 1, generic: 3, graph: 0, descr: 'Unknown' }
                         - { value: 2, generic: 0, graph: 0, descr: 'Green' }
@@ -145,10 +145,10 @@ modules:
                         - { value: 6, generic: 2, graph: 0, descr: 'Abnormal' }
                 # Fan Status
                 -
-                    oid: sysFanInfoTable
-                    value: sysFanState
+                    oid: fsSystemFanIsNormalTable
+                    value: fsSystemFanIsNormal
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.1.21.1.2.{{ $index }}'
-                    descr: '{{ $sysFanName }}'
+                    descr: '{{ $fsSystemFanName }}'
                     states:
                         - { value: 1, generic: 3, graph: 0, descr: 'Unknown' }
                         - { value: 2, generic: 0, graph: 0, descr: 'Green' }
@@ -157,13 +157,13 @@ modules:
                         - { value: 5, generic: 2, graph: 0, descr: 'Abnormal' }
                 # PoE Port Power Status
                 -
-                    oid: ifPoeStatusTable
-                    value: ifPoePowerStatus
+                    oid: fsIfPoeTable
+                    value: ifPoePwrStatus
                     num_oid: '.1.3.6.1.4.1.52642.1.1.10.2.110.1.1.1.4.{{ $index }}'
                     descr: 'PoE Port {{ $index }} Status'
                     skip_values:
                         -
-                            oid: ifPoeCapable
+                            oid: ifIsPoe
                             op: '!='
                             value: 1
                     states:
