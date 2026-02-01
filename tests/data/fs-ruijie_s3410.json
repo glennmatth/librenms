@@ -42,14 +42,24 @@
         "discovery": {
             "mempools": [
                 {
-                    "mempool_descr": "Memory Pool 1",
+                    "mempool_index": "1",
+                    "entPhysicalIndex": null,
                     "mempool_type": "fs-ruijie",
-                    "mempool_index": 1,
+                    "mempool_class": "system",
                     "mempool_precision": 1024,
+                    "mempool_descr": "Memory Pool 1",
                     "mempool_perc": 50,
-                    "mempool_used": 262420,
-                    "mempool_free": 261868,
-                    "mempool_total": 524288
+                    "mempool_perc_oid": null,
+                    "mempool_used": 268718080,
+                    "mempool_used_oid": ".1.3.6.1.4.1.52642.1.1.10.2.35.1.1.1.7.1",
+                    "mempool_free": 268152832,
+                    "mempool_free_oid": null,
+                    "mempool_total": 536870912,
+                    "mempool_total_oid": null,
+                    "mempool_largestfree": null,
+                    "mempool_lowestfree": null,
+                    "mempool_deleted": 0,
+                    "mempool_perc_warn": 90
                 }
             ]
         },
