@@ -1,5 +1,5 @@
-os: fs-switch-campus
-text: 'FS.com Campus Switch'
+os: fs-ruijie
+text: 'Fiberstore (Ruijie)'
 type: network
 icon: fs
 group: fs

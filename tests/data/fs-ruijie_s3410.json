@@ -12,7 +12,7 @@
                     "serial": "FSSN00000001",
                     "features": null,
                     "location": "Examplestreet,",
-                    "os": "fs-switch-campus",
+                    "os": "fs-ruijie",
                     "type": "network",
                     "icon": "fs.svg"
                 }
@@ -28,7 +28,7 @@
                     "processor_usage": 5,
                     "entPhysicalIndex": 0,
                     "hrDeviceIndex": 0,
-                    "processor_type": "fs-switch-campus",
+                    "processor_type": "fs-ruijie",
                     "processor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.36.1.1.3.0",
                     "processor_index": "0",
                     "processor_precision": 1
@@ -42,7 +42,7 @@
             "mempools": [
                 {
                     "mempool_descr": "Memory Pool 1",
-                    "mempool_type": "fs-switch-campus",
+                    "mempool_type": "fs-ruijie",
                     "mempool_index": 1,
                     "mempool_precision": 1024,
                     "mempool_perc": 50,
@@ -60,7 +60,7 @@
                 {
                     "sensor_descr": "Temperature Slot 1 Sensor 1",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.1.44.1.5.1.1.1",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "1.1.1",
                     "sensor_class": "temperature",
                     "sensor_current": 19,
@@ -97,7 +97,7 @@
                 {
                     "sensor_descr": "TenGigabitEthernet 0/25 Temperature",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.17.25",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "25",
                     "sensor_class": "temperature",
                     "sensor_current": 25
@@ -105,7 +105,7 @@
                 {
                     "sensor_descr": "TenGigabitEthernet 0/25 RX Power",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.51.25",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "25",
                     "sensor_class": "dbm",
                     "sensor_current": -0.1
@@ -113,7 +113,7 @@
                 {
                     "sensor_descr": "TenGigabitEthernet 0/25 TX Power",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.31.25",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "25",
                     "sensor_class": "dbm",
                     "sensor_current": -0.4
@@ -121,7 +121,7 @@
                 {
                     "sensor_descr": "TenGigabitEthernet 0/25 Voltage",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.105.1.1.1.19.25",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "25",
                     "sensor_class": "voltage",
                     "sensor_current": 3.283
@@ -129,7 +129,7 @@
                 {
                     "sensor_descr": "PoE Port 24",
                     "sensor_oid": ".1.3.6.1.4.1.52642.1.1.10.2.110.1.1.1.7.24",
-                    "sensor_type": "fs-switch-campus",
+                    "sensor_type": "fs-ruijie",
                     "sensor_index": "24",
                     "sensor_class": "power",
                     "sensor_current": 8.5
